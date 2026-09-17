@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f766e"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="AVA 退休醫保">
-  <title>AVA Retirement Medical v1.0.0</title>
+  <title>AVA Retirement Medical v1.0.1</title>
   <link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="./icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./design-system/tokens.css"><link rel="stylesheet" href="./design-system/components.css"><link rel="stylesheet" href="./design-system/frontend.css"><link rel="stylesheet" href="./module.css">
 </head>
 <body class="ava-front">
-  <header class="ava-front__header"><strong>AVA Retirement Medical</strong><span class="version">v1.0.0</span></header>
+  <header class="ava-front__header"><div class="header-brand"><a id="ava-back-link" class="ava-back-link" href="https://ivancww.github.io/avaplatform/" hidden>← AVA</a><strong>AVA Retirement Medical</strong></div><span class="version">v1.0.1</span></header>
   <div class="ava-front__progress" aria-hidden="true"><div class="ava-front__progress-fill" style="width:100%"></div></div>
-  <main class="ava-front__container"><section class="ava-front__content">
+  <main class="ava-front__container"><aside id="integration-context" class="integration-context" hidden aria-live="polite"><strong id="integration-title"></strong><span id="integration-copy"></span></aside><section class="ava-front__content">
     <h1 class="ava-front__title">退休醫保防線</h1><p class="ava-front__support">睇清楚退休後醫療保費、提前準備同醫療儲備之間嘅現金流變化。</p>
     <div class="input-grid" aria-label="退休醫保假設">
       <label class="ava-field"><span class="ava-label">醫保獨立本金（HK$）</span><input class="ava-input" id="med-principal" inputmode="numeric" value="200,000"></label>
