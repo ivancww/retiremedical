@@ -1,0 +1,4 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');const context={globalThis:{},Intl,console};vm.createContext(context);vm.runInContext(fs.readFileSync('app.js','utf8'),context);const core=context.globalThis.RetirementMedicalCore;
+const savingData=[{year:5,rate:.05,mult:1.2},{year:10,rate:.05,mult:1.6},{year:20,rate:.05,mult:2.5},{year:30,rate:.05,mult:3}];const medicalData={60:10000,61:11000,62:12000};
+const result=core.calculateMedical({principal:200000,currentAge:58,retirementAge:60,lifeExpectancy:62,adjustmentRate:.05,plan:'3year 5%',savingData,medicalData});
+assert.equal(result.rows.length,2);assert.equal(Math.round(result.totalPremium),38345);assert.equal(result.totalRelief,20000);assert.equal(Math.round(result.totalActual),18345);assert.equal(result.finalBalance,192000);assert.equal(Math.round(result.netOutcome),-6345);console.log('retirement medical calculation baseline passed');

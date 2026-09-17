@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="AVA 退休醫保">
+  <title>AVA Retirement Medical v1.0.0</title>
+  <link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-system/tokens.css"><link rel="stylesheet" href="./design-system/components.css"><link rel="stylesheet" href="./design-system/frontend.css"><link rel="stylesheet" href="./module.css">
+</head>
+<body class="ava-front">
+  <header class="ava-front__header"><strong>AVA Retirement Medical</strong><span class="version">v1.0.0</span></header>
+  <div class="ava-front__progress" aria-hidden="true"><div class="ava-front__progress-fill" style="width:100%"></div></div>
+  <main class="ava-front__container"><section class="ava-front__content">
+    <h1 class="ava-front__title">退休醫保防線</h1><p class="ava-front__support">睇清楚退休後醫療保費、提前準備同醫療儲備之間嘅現金流變化。</p>
+    <div class="input-grid" aria-label="退休醫保假設">
+      <label class="ava-field"><span class="ava-label">醫保獨立本金（HK$）</span><input class="ava-input" id="med-principal" inputmode="numeric" value="200,000"></label>
+      <label class="ava-field"><span class="ava-label">現時年齡</span><input class="ava-input" id="med-age" type="number" value="40" min="1" max="80"></label>
+      <label class="ava-field"><span class="ava-label">預計退休年齡</span><input class="ava-input" id="med-retirement-age" type="number" value="60" min="45" max="85"></label>
+      <label class="ava-field"><span class="ava-label">預期壽命</span><input class="ava-input" id="med-life-expectancy" type="number" value="85" min="65" max="110"></label>
+      <label class="ava-field"><span class="ava-label">聯動儲蓄提取方案</span><select class="ava-select" id="med-saving-plan-select"><option value="1year 4%">方案 A：第 1 年起提取年金（4%）</option><option value="3year 5%" selected>方案 B：第 3 年起提取年金（5%）</option><option value="5year 6%">方案 C：第 5 年起提取年金（6%）</option><option value="自動滾存">方案 D：全自動滾存（歲月純增值）</option></select></label>
+      <label class="ava-field"><span class="ava-label">AIA 醫保計劃</span><select class="ava-select" id="med-plan-select"><option value="尊顯0自付額" selected>尊顯0自付額</option><option value="尊顯16000自付額">尊顯16000自付額</option><option value="尊顯25000自付額">尊顯25000自付額</option><option value="睿選0自付額">睿選0自付額</option><option value="睿選8800自付額">睿選8800自付額</option><option value="睿選18000自付額">睿選18000自付額</option><option value="睿選30000自付額">睿選30000自付額</option><option value="男靈活計劃">男靈活計劃</option><option value="女靈活計劃">女靈活計劃</option></select></label>
+      <label class="ava-field inflation-field"><span class="ava-label">醫保保費每年調整：<output id="med-slider-val">5.0%</output></span><input id="med-adjustment-slider" type="range" min="0" max="7" step="0.1" value="5.0"></label>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <div class="table-responsive" tabindex="0" aria-label="退休醫保結果表，可橫向捲動"><table id="medical-table"><thead><tr><th>退休進程（年齡）</th><th>預計醫療保費</th><th>減輕保費壓力</th><th class="actual-column" hidden>實際醫保保費</th><th>醫保防線結餘</th></tr></thead><tbody id="medical-table-body"></tbody></table></div>
+    <button class="ava-button ava-button--secondary detail-toggle" id="toggle-actual-btn" type="button" aria-expanded="false">顯示實繳保費與總結算</button>
+    <section class="summary-grid" aria-label="精算對比"><article class="ava-result-card"><span>沒有提前預備下 — 總付出金額</span><strong class="danger" id="calc-outcome-a">-$0</strong></article><article class="ava-result-card"><span>提前預備下 — 淨結餘</span><strong class="purple" id="calc-outcome-b">$0</strong><button class="formula-button" id="toggle-formula-btn" aria-expanded="false" type="button">計算方法</button><p id="formula" hidden>累積減輕保費壓力總額 ＋ 醫保防線期末結餘 − 實際醫保總額 − 本金</p></article></section>
+  </section></main><script src="./app.js"></script>
+</body></html>
